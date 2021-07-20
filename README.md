@@ -8,3 +8,6 @@ Run `npm install` to install all dependencies.
 
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. This command will bring up the angular cli server and a node mock server.
 
+## Test Notes
+
+I decided to change the error message because there was a color contrast error related to accessibility requirements.
