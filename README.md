@@ -11,3 +11,5 @@ Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. This com
 ## Test Notes
 
 I decided to change the error message because there was a color contrast error related to accessibility requirements.
+
+To test the error handling put the value `testError` in the ORganization field and an error message will apperar at the bottom.
