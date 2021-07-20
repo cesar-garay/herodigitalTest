@@ -1,0 +1,27 @@
+@import "../variables";
+
+main {
+  width: 100%;
+  padding: 0 $defaultPadding;
+
+  .form-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .chekcbox-list,
+  .buttons-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .buttons-list {
+    margin-top: 3em;
+  }
+  .backend-message-error {
+    @include error-container-aa();
+    position: relative;
+  }
+  @media (min-width: $tabletBreakpoint) {
+    width: 1100px;
+  }
+}

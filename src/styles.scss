@@ -1,1 +1,103 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+@import "./variables";
+
+html {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  color: $textColor;
+  body {
+    margin: 0;
+    font-size: $defaultFontSize;
+    &::after {
+      content: "";
+      background-image: url("assets/texture-optimized-crop.jpg");
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.6;
+      z-index: -1;
+    }
+    app-root {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+    }
+  }
+
+  .form-field {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: $defaultPadding;
+    padding-bottom: $defaultPadding * 2;
+    position: relative;
+    label {
+      font-size: $labelSize;
+      font-weight: $boldWeight;
+      margin: $defaultPadding * 0.5 0;
+      text-transform: uppercase;
+    }
+
+    .form-control {
+      &:focus-visible,
+      &:active {
+        outline-color: $inputBorderActiveColor;
+      }
+
+      &:disabled {
+        border-color: $inputBorderDisableColor;
+        background-color: $inputBgDisableColor;
+      }
+
+      &.has-error {
+        border-color: $inputBorderErrorColor;
+        background-color: $inputBgErrorColor;
+        &:focus-visible,
+        &:active {
+          outline-color: $inputBorderActiveColor;
+        }
+      }
+    }
+
+    .error-container {
+      @include error-container();
+    }
+    .error-container-aa {
+      @include error-container-aa();
+    }
+
+    @media (min-width: $tabletBreakpoint) {
+      width: calc(50% - #{$defaultPadding * 2});
+    }
+  }
+
+  .btn {
+    background: $whiteColor;
+    border: 1px solid $lightGrey;
+    margin: $defaultPadding;
+    padding: $defaultPadding;
+    min-width: $buttonMinWidth;
+    text-transform: uppercase;
+    font-weight: $boldWeight;
+    border-radius: $buttonBorderRadius;
+    cursor: pointer;
+    @include custom-box-shadow();
+
+    &.submit {
+      background-color: $mainConfirmColor;
+      color: $whiteColor;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+}

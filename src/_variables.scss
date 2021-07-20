@@ -1,0 +1,50 @@
+$tabletBreakpoint: 768px;
+$defaultPadding: 8px;
+$defaultFontSize: 14px;
+$boldWeight: 600;
+
+$labelSize: 0.9em;
+$errorTextSize: 0.8em;
+$inputBorderSize: 2px;
+$whiteColor: #fafafa;
+$lightGrey: #ccc;
+$textColor: #111;
+
+$inputErrorColor: #ee4266;
+$inputBorderColor: #cfe7e5;
+$inputBorderActiveColor: #a1d2ce;
+$inputBorderDisableColor: #989898;
+$inputBorderErrorColor: #ee90a2;
+
+$inputBgColor: $whiteColor;
+$inputBgDisableColor: #f2f2f2;
+$inputBgErrorColor: #efe0e0;
+
+$mainConfirmColor: #803093;
+
+$buttonBorderRadius: 20px;
+$buttonMinWidth: 100px;
+
+@mixin custom-box-shadow() {
+  box-shadow: 0px 5px 5px 1px $lightGrey;
+}
+
+@mixin error-container() {
+  font-size: 0.9em;
+  position: absolute;
+  bottom: 0;
+  color: $inputErrorColor;
+  p {
+    margin: 0;
+    font-weight: $boldWeight;
+    text-transform: capitalize;
+  }
+}
+
+@mixin error-container-aa {
+  @include error-container();
+  width: calc(100% - #{$defaultPadding * 4});
+  padding: 0 $defaultPadding;
+  background-color: $inputErrorColor;
+  color: $textColor;
+}

@@ -1,0 +1,28 @@
+<label [for]="elementId">
+  <span>{{label}}</span>
+  <span *ngIf="isRequired"> * </span>
+</label>
+
+<select [id]="elementId"
+        [name]="elementId"
+        [attr.aria-label]="label"
+        class="form-control"
+        (click)="onClick()"
+        (keydown)="onKeydown($event)"
+        (blur)="onBlur()"
+        (change)="onSelect()"
+        [ngClass]="{'has-error':control.invalid && (control.dirty || control.touched)}"
+        [formControl]="control">
+  <option value=""
+          disabled>- SELECT ONE -</option>
+  <ng-container *ngFor="let option of options | async">
+    <option [value]="option.id">{{option.description}}</option>
+  </ng-container>
+</select>
+<div class="arrow"
+     [ngClass]="{'open':isOpenOptions}"></div>
+
+<div class="error-container-aa"
+     *ngIf="control.invalid && (control.dirty || control.touched)">
+  <p *ngIf="control.hasError('required')">{{label}} is required</p>
+</div>

@@ -1,0 +1,20 @@
+<label [for]="elementId">
+  <div class="checkmark"
+       [ngClass]="{'checked': control.value}">
+    <img class="mark"
+         alt="check mark"
+         src="../../assets/check.svg" />
+  </div>
+  <span>{{label}}</span>
+  <span *ngIf="isRequired"> * </span>
+  <input type="checkbox"
+         [id]="elementId"
+         [attr.aria-label]="label"
+         [formControl]="control"
+         [name]="elementId">
+</label>
+<div class="error-container-aa"
+     *ngIf="control.invalid && (control.dirty || control.touched)">
+  <p *ngIf="control.hasError('required')">{{label}} is required</p>
+  <p *ngIf="control.hasError('email')">{{label}} has wrong email format</p>
+</div>

@@ -1,0 +1,18 @@
+<label [for]="elementId">
+  <span>{{label}}</span>
+  <span *ngIf="isRequired"> * </span>
+</label>
+
+<input [id]="elementId"
+       [name]="elementId"
+       class="form-control"
+       [attr.aria-label]="label"
+       [ngClass]="{'has-error':control.invalid && (control.dirty || control.touched)}"
+       [formControl]="control"
+       [type]="fieldType" />
+
+<div class="error-container-aa"
+     *ngIf="control.invalid && (control.dirty || control.touched)">
+  <p *ngIf="control.hasError('required')">{{label}} is required</p>
+  <p *ngIf="control.hasError('email')">{{label}} has wrong email format</p>
+</div>

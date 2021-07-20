@@ -1,0 +1,36 @@
+@import "../../variables";
+
+:host {
+  position: relative;
+  select {
+    appearance: none;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    padding: $defaultPadding;
+    border: $inputBorderColor $inputBorderSize solid;
+    transition: border 0.5s, background-color 0.5s, transform 0.5s;
+    background-color: $inputBgColor;
+    align-items: center;
+    @include custom-box-shadow();
+  }
+  .arrow {
+    position: absolute;
+    right: $defaultPadding * 2;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    top: 50%;
+    background-image: url("../../assets/text-expand-arrow.svg");
+    transition: all 0.5s;
+
+    &.open {
+      transform: rotate(90deg);
+    }
+  }
+}
