@@ -12,7 +12,7 @@
     "server-be": "node ./dist-server/bin/www",
     "clean": "rimraf dist-server",
     "build-node": "npm-run-all clean transpile",
-    "start-backend": "npm-run-all -p build-node server-be"
+    "start-backend": "npm-run-all build-node server-be"
   },
   "babel": {
     "presets": [
